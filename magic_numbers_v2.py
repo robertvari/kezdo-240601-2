@@ -74,13 +74,18 @@ def game_loop():
         print(f"I take 10 credits from you.")
         CREDITS -= 10
     
-    print(f"You have {CREDITS} credits.")
+    if CREDITS > 0:
+        print(f"You have {CREDITS} credits.")
+    elif CREDITS == 0:
+        print(f"You lost all of your credits but I give you an other chance.")
+    else:
+        print("You lost all of your credits. Game Over.")
 
     time.sleep(5)
     clear_screen()
 
     if CREDITS < 0:
-        print("Game Over. You lost all of your credits. Maybe next time! :)")
+        print("Maybe next time! :)")
     else:
         result = ask_player("Do you want an other round?")
         if result == "y":
