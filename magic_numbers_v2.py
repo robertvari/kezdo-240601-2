@@ -43,6 +43,7 @@ def ask_player(question):
     return input(f"{question} (y/n)").lower()
 
 def game_loop():
+    clear_screen()
     global CREDITS
 
     try_count = 3
@@ -53,6 +54,7 @@ def game_loop():
 
     # check player's number. If wrong ask again.
     while magic_number != player_number:
+        clear_screen()
         try_count -= 1
         if try_count == 0:
             break
@@ -74,7 +76,7 @@ def game_loop():
     
     print(f"You have {CREDITS} credits.")
 
-    time.sleep(3)
+    time.sleep(5)
     clear_screen()
 
     if CREDITS < 0:
