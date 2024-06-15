@@ -60,6 +60,8 @@ def game_loop():
         print(f"Wrong guess! You have {try_count} tries left. Try again.")
         player_number = get_player_number()
 
+    clear_screen()
+
     # End game condition
     if magic_number == player_number:
         print(f"You win! {magic_number} was my number! :)")
@@ -72,6 +74,9 @@ def game_loop():
     
     print(f"You have {CREDITS} credits.")
 
+    time.sleep(3)
+    clear_screen()
+
     if CREDITS < 0:
         print("Game Over. You lost all of your credits. Maybe next time! :)")
     else:
@@ -82,6 +87,7 @@ def game_loop():
             exit_game()
 
 def exit_game():
+    clear_screen()
     print("Sorry to see you go :( Maybe next time ;)")
 
 def get_player_number():
