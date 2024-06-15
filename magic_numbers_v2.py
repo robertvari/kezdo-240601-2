@@ -40,7 +40,15 @@ def get_player_name():
     return input("What is your name?")
 
 def ask_player(question):
-    return input(f"{question} (y/n)").lower()
+    valid_chars = "yn"
+    result = input(f"{question} (y/n)").lower()
+
+    while not result in valid_chars:
+        clear_screen()
+        print("Wrong answer.")
+        result = input(f"{question} (y/n)").lower()
+
+    return result
 
 def game_loop():
     clear_screen()
