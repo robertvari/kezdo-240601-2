@@ -18,7 +18,7 @@ def main():
         game_loop()
     
     clear_screen()
-    print("Sorry to see you go :( Maybe next time ;)")
+    exit_game()
 
 def clear_screen():
     if os.name == "nt":
@@ -58,7 +58,31 @@ def game_loop():
             break
 
         print(f"Wrong guess! You have {try_count} tries left. Try again.")
-        player_number = input("What is your guess? ")
+        player_number = get_player_number()
+
+    # End game condition
+    if magic_number == player_number:
+        print(f"You win! {magic_number} was my number! :)")
+        print("I give you 10 credits :)")
+        CREDITS += 10
+    else:
+        print(f"You lost the round. My number was {magic_number}.")
+        print(f"I take 10 credits from you.")
+        CREDITS -= 10
+    
+    print(f"You have {CREDITS} credits.")
+
+    if CREDITS < 0:
+        print("Game Over. You lost all of your credits. Maybe next time! :)")
+    else:
+        result = ask_player("Do you want an other round?")
+        if result == "y":
+            game_loop()
+        else:
+            exit_game()
+
+def exit_game():
+    print("Sorry to see you go :( Maybe next time ;)")
 
 def get_player_number():
     return input("What is your guess?")
