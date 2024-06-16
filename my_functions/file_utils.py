@@ -14,8 +14,20 @@ def find_files(root_folder: str, file_list: list, ext: str=None, name: str=None)
     for i in folder_content:
         full_path = os.path.join(root_folder, i)
         if os.path.isfile(full_path):
-            # add files to file_list
+            # Filter by extension
+            if ext:
+                _, extension = os.path.splitext(i)
+                if extension != ext:
+                    continue
+            
+            # filter by name
+            if name:
+                if not name.lower() in i.lower():
+                    continue
+            
+            # add file to file_list
             file_list.append(full_path)
+        
         else:
             subfolders.append(full_path)
 
@@ -28,5 +40,9 @@ def find_files(root_folder: str, file_list: list, ext: str=None, name: str=None)
 
 if __name__ == '__main__':
     files = []
-    find_files(r"D:\Work\PythonSuli\kezdo-240601\alapok_2\test_folder", files)
+    find_files(
+        root_folder=r"D:\Work\PythonSuli\kezdo-240601\alapok_2\test_folder", 
+        file_list=files, 
+        name="ali"
+        )
     pass
