@@ -1,0 +1,1 @@
+my_friends = ["Vári Róbert", "Kiss Balázs", "Kovács Elemér", "Tóth Krisztina", "Kiss Csaba Géza"]
