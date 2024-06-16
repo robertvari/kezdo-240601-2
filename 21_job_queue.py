@@ -1,3 +1,5 @@
+import time, random
+
 file_list = [
     "image_0001.exr",
     "image_0002.exr",
@@ -11,3 +13,9 @@ file_list = [
     "image_0010.exr",
     "image_0011.exr",
 ]
+
+
+def converter(image):
+    print(f"Converting {image}...")
+    time.sleep(random.randint(3, 10))
+    print("Job finished.")
