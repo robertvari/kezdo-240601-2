@@ -65,6 +65,31 @@ def sayHello(name, address, phone=None, email=None):
         print(email)
 ```
 
+## Paraméter annotáció
+Egy függvény paramétereit elláthatjuk un. annotációval amivel jelöljük, hogy a a paraméter milyen típusú lehet. 
+
+```python
+def say_hello(name: str, age: int, address: str):
+    ...
+```
+Fontos megjegyezni ha a függvénynek mégis más típusú paramétert adunk át azt a python nem fogja vizsgálni.
+
+## Docsrting
+A docstring lényegében a függvényhez írt dokumentáció ami olvasható ha meghívjuk a függvényt és egérrel a függvény neve felé állunk. Ezzel jegyzetet készíthetünk azoknak akik a függvényünket használni fogják. 
+
+```python
+def say_hello(name, age, address):
+    """
+    This function prints out the user's data.
+
+    Parameters:
+        name (str): This is the username.
+        age (int): User's age
+        address (str): User's address
+    """
+```
+
+
 ## Tetszőleges hosszúságú paraméterlista (variable length arguments)
 
 Bizonyos helyzetekben előre nem tudhatjuk, hogy a függvényünk kap e paramétert és hány paramétert kap majd a hívásnál (lásd: dekorátorok). Ilyenkor használjuk az *args speciális paramétert:
@@ -216,7 +241,7 @@ Ezt követően a my_program.py fájlban így importálhatóak a my_functions.py 
 from my_library.my_functions import my_function
 ```
 
-Gyakori hogy egy beimportált modul nevének rövidítést adunk (alias):
+Gyakori, hogy egy beimportált modul nevének rövidítést adunk (alias):
 ```python
 from my_library import my_functions as mf
 
